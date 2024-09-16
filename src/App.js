@@ -25,13 +25,20 @@ const foodILike = [
   },
 ];
 
+// map() 함수의 1번째 인자로 전달할 함수를 분리
+// console 오류 막기 위해서 컴포넌트마다 고유 key값 설정해서 전달
+// function renderFood(dish) {
+//   return <Food name={dish.name} picture={dish.image} />;
+// }
+
+// map() 함수의 1번째 인자로 전달할 함수를 분리(화살표 함수 버전)
+// console 오류 막기 위해서 컴포넌트마다 고유 key값 설정해서 전달
+const renderFood = dish => <Food name={dish.name}  picture={dish.image} />
+
 function App() {
   return (
     <div>
-      {foodILike.map(dish => (
-        /* console 오류 막기 위해서 컴포넌트마다 고유 key값 설정해서 전달 */
-        <Food name={dish.name} picture={dish.image} key={dish.id} />
-      ))}
+      {foodILike.map(renderFood)}
     </div>
   );
 }
