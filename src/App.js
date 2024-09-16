@@ -7,7 +7,7 @@ function Food({ name, picture, idx }) {
   return (
     <div key={idx}>
       <h2>I like {name}</h2>
-      <img src={picture} />
+      <img src={picture} alt={name} />
     </div>
   )
 }
@@ -33,13 +33,16 @@ const foodILike = [
 
 // map() 함수의 1번째 인자로 전달할 함수를 분리(화살표 함수 버전)
 // console 오류 막기 위해서 컴포넌트마다 고유 key값 설정해서 전달
-const renderFood = (dish, idx) => <Food name={dish.name} picture={dish.image} key={idx} />;
+// const renderFood = (dish, idx) => <Food name={dish.name} picture={dish.image} key={idx} />;
 
 function App() {
-  console.log(foodILike.map(renderFood));
+  // console.log(foodILike.map(renderFood));
+  // 'key' props는 리액트 내부에서 사용되는 특수한 props라서 Food 컴포넌트에 직접 전달되지는 않음
   return (
     <div>
-      {foodILike.map(renderFood)}
+      {foodILike.map((dish, idx) => (
+        <Food name={dish.name} picture={dish.image} key={idx} />
+      ))}
     </div>
   );
 }
