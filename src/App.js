@@ -18,7 +18,8 @@ function Food({ name, picture, idx, rating }) {
 Food.propTypes = {
   name: PropTypes.string.isRequired,
   picture: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired
+  // rating: PropTypes.number.isRequired
+  rating: PropTypes.number
 }
 
 
