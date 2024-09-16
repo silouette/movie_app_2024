@@ -3,9 +3,9 @@
 import React from 'react';
 // import Potato from './Potato';
 
-function Food({ name, picture }) {
+function Food({ name, picture, idx }) {
   return (
-    <div>
+    <div key={idx}>
       <h2>I like {name}</h2>
       <img src={picture} />
     </div>
@@ -33,9 +33,10 @@ const foodILike = [
 
 // map() 함수의 1번째 인자로 전달할 함수를 분리(화살표 함수 버전)
 // console 오류 막기 위해서 컴포넌트마다 고유 key값 설정해서 전달
-const renderFood = dish => <Food name={dish.name}  picture={dish.image} />
+const renderFood = (dish, idx) => <Food name={dish.name} picture={dish.image} key={idx} />;
 
 function App() {
+  console.log(foodILike.map(renderFood));
   return (
     <div>
       {foodILike.map(renderFood)}
