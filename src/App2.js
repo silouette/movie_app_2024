@@ -9,6 +9,18 @@ class App extends React.Component {
         count: 0
     };
 
+    componentDidMount() {
+        console.log('component rendered');
+    }
+
+    componentDidUpdate() {
+        console.log('I just updated');
+    }
+
+    componentWillUnmount() {
+        console.log('Goodbye, cruel world');
+    }
+
     add = () => {
         console.log('add');
         this.setState(current => ({
