@@ -7,9 +7,14 @@ class App extends React.Component {
         movies: []
     };
 
+    // 영화 데이터 로딩(getMovies() 함수는 시간이 필요하기에 async 추가)
+    getMovies = async () => {
+        // axios.get()의 실행을 기다리도록 await 추가
+        const movies = await axios.get('https://yts-proxy.now.sh/list_movies.json');
+    };
+
     componentDidMount() {
-        // 영화 데이터 로딩
-        axios.get('https://yts-proxy.now.sh/list_movies.json');
+        this.getMovies();
     }
 
     render() {
