@@ -23,7 +23,7 @@ class App extends React.Component {
         // 구조 분해 할당으로 얻은 영화 데이터 setState
         // this.setState({ movies: movies })
         // ES6에서는 객체의 키와 대입할 변수의 이름이 같다면 코드를 축약 가능하다. (아래는 축약 형태로 코드를 바꾼 것)
-        this.setState({ movies });
+        this.setState({ movies, isLoading: false });
     };
 
     componentDidMount() {
