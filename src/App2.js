@@ -39,6 +39,7 @@ class App extends React.Component {
             // Movie 컴포넌트에 props를 전달
             return (
                 <Movie 
+                    key={movie.id}
                     id={movie.id} 
                     year={movie.year}
                     title={movie.title}
