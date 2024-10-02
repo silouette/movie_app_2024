@@ -11,8 +11,8 @@ function Movie({ title, year, summary, poster, genres }) {
                 <h5 className="movie__year">{year}</h5>
                 <ul className="movie__genres">
                     {/* genres props가 배열이므로 map() 함수 사용가능 */}
-                    {genres.map((genre) => {
-                        return <li className="movie__genre">{genre}</li>;
+                    {genres.map((genre, index) => {
+                        return <li key={index} className="movie__genre">{genre}</li>;
                     })}
                 </ul>
                 <p className="movie__summary">{summary}</p>
